@@ -74,15 +74,17 @@ const fetchDeals = async (page = 1, size = 6) => {
 const renderDeals = deals => {
   const fragment = document.createDocumentFragment();
   const div = document.createElement('div');
+
   const template = deals
     .map(deal => {
       return `
-      <div class="deal" id=${deal.uuid}>
-        <span>${deal.id}</span>
-        <a href="${deal.link}" target="_blank">${deal.title}</a>  
-        <span>${deal.price}</span>
-      </div>
-    `;
+        <div class="deal" id="${deal.uuid}">
+          <span>${deal.id}</span>
+          <a href="${deal.link}" target="_blank">${deal.title}</a>
+          <span>${deal.price}€</span>
+          <button data-id="${deal.uuid}" class="save-favorite"> Save as favorite</button>
+        </div>
+      `;
     })
     .join('');
 
@@ -90,7 +92,21 @@ const renderDeals = deals => {
   fragment.appendChild(div);
   sectionDeals.innerHTML = '<h2>Deals</h2>';
   sectionDeals.appendChild(fragment);
+
+  // Ajout des écouteurs pour les boutons "Save as favorite"
+  const buttons = document.querySelectorAll('.save-favorite');
+  buttons.forEach(button => {
+    button.addEventListener('click', event => {
+      const uuid = event.target.dataset.id;
+      const favoriteDeal = currentDeals.find(d => d.uuid === uuid);
+      if (favoriteDeal) {
+        localStorage.setItem('favoriteDeal', JSON.stringify(favoriteDeal));
+        alert('Deal saved as favorite! Yay');
+      }
+    });
+  });
 };
+
 
 /**
  * Render page selector
