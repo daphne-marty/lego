@@ -208,6 +208,22 @@ document.querySelector('#filter-hot').addEventListener('click', () => {
   renderDeals(filteredDeals);
 });
 
+//feature 5 :
+
+document.querySelector('#sort-select').addEventListener('change', event => {
+  const value = event.target.value;
+  let sortedDeals = [...currentDeals]; // copy to avoid  modyfying the original variable
+
+  if (value === 'price-asc') {
+    sortedDeals.sort((a, b) => a.price - b.price);
+  } else if (value === 'price-desc') {
+    sortedDeals.sort((a, b) => b.price - a.price);
+  }
+
+  renderDeals(sortedDeals);
+});
+
+
 
 
 
