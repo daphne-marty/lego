@@ -198,6 +198,13 @@ selectPage.addEventListener('change', async (event) => {
   render(currentDeals, currentPagination);
 });
 
+selectLegoSetIds.addEventListener('change', async (event) => {
+  const selectedId = event.target.value;
+  const sales = await fetchVintedSales(selectedId);
+  renderVintedSales(sales);
+});
+
+
 // feature 4 : 
 
 document.querySelector('#filter-hot').addEventListener('click', () => {
@@ -229,6 +236,47 @@ document.querySelector('#sort-select').addEventListener('change', event => {
 
   renderDeals(sortedDeals);
 });
+
+
+
+// feature 7:
+
+const fetchVintedSales = async (id) => {
+  try {
+    const response = await fetch(`https://lego-api-blue.vercel.app/sales?id=${id}`);
+    const body = await response.json();
+
+    if (body.success !== true) {
+      console.error(body);
+      return [];
+    }
+
+    return body.data.result;
+  } catch (error) {
+    console.error("Error fetching Vinted sales:", error);
+    return [];
+  }
+};
+
+const renderVintedSales = (sales) => {
+  const container = document.querySelector('#vinted-sales');
+  if (sales.length === 0) {
+    container.innerHTML = '<p>No sales found for this set.</p>';
+    return;
+  }
+
+  console.log("Vinted sales example:", sales[0]);
+
+
+  const html = sales.map(sale => `
+    <div class="sale">
+      <a href="${sale.link}" target="_blank">${sale.title}</a> - ${sale.price}€
+    </div>
+  `).join('');
+
+  container.innerHTML = html;
+};
+
 
 
 
