@@ -198,6 +198,15 @@ selectPage.addEventListener('change', async (event) => {
   render(currentDeals, currentPagination);
 });
 
+// feature 4 : 
+
+document.querySelector('#filter-hot').addEventListener('click', () => {
+  const filteredDeals = currentDeals.filter(deal => {
+    return deal.temperature > 100;
+  });
+
+  renderDeals(filteredDeals);
+});
 
 
 
