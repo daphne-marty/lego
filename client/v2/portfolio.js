@@ -275,6 +275,32 @@ const renderVintedSales = (sales) => {
   `).join('');
 
   container.innerHTML = html;
+  // feature 8 :
+  document.querySelector('#nbSales').textContent = sales.length;
+
+  //feature 9 :
+
+  // Met à jour nbSales
+  document.querySelector('#nbSales').textContent = sales.length;
+
+  // Récupère tous les prix en float
+  const prices = sales.map(sale => parseFloat(sale.price)).sort((a, b) => a - b);
+
+  // Calcule la moyenne
+  const average = prices.reduce((acc, val) => acc + val, 0) / prices.length || 0;
+
+  // Calcule les percentiles
+  const p5 = prices[Math.floor(prices.length * 0.05)] || 0;
+  const p25 = prices[Math.floor(prices.length * 0.25)] || 0;
+  const p50 = prices[Math.floor(prices.length * 0.50)] || 0;
+
+  // Met à jour les éléments HTML
+  document.querySelector('#p5').textContent = `${p5.toFixed(2)}€`;
+  document.querySelector('#p25').textContent = `${p25.toFixed(2)}€`;
+  document.querySelector('#p50').textContent = `${p50.toFixed(2)}€`;
+
+
+
 };
 
 
