@@ -1,0 +1,108 @@
+/* Global fun vibes */
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background: linear-gradient(120deg, #fceabb 0%, #f8b500 100%);
+    margin: 0;
+    padding: 40px;
+    color: #3a2c00;
+  }
+  
+  /* Titles */
+  h1 {
+    font-size: 3rem;
+    text-align: center;
+    color: #f44336;
+    text-shadow: 2px 2px #fff5e1;
+    margin-bottom: 30px;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    color: #ff6f00;
+    margin-top: 40px;
+    margin-bottom: 10px;
+  }
+  
+  /* Buttons */
+  button {
+    background-color: #ff9800;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 25px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    margin: 5px;
+  }
+  
+  button:hover {
+    background-color: #ff5722;
+    transform: scale(1.05);
+  }
+  
+  /* Selects */
+  select {
+    border-radius: 10px;
+    padding: 6px;
+    font-size: 1rem;
+    background-color: #fff3e0;
+    border: 1px solid #ff9800;
+    color: #3a2c00;
+  }
+  
+  /* Deal and Sale Cards */
+  .deal, .sale {
+    background-color: #ffffffcc;
+    padding: 16px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    border: 2px dashed #ff6f00;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .deal:hover, .sale:hover {
+    transform: scale(1.01);
+    background-color: #fffbe6;
+  }
+  
+  .deal a, .sale a {
+    font-weight: bold;
+    color: #ff6f00;
+    text-decoration: none;
+  }
+  
+  .deal a:hover, .sale a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Indicators section */
+  #indicators {
+    background-color: #fff8e1;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    margin-top: 20px;
+  }
+  
+  #indicators div {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px dashed #ffcc80;
+  }
+  
+  #indicators div:last-child {
+    border-bottom: none;
+  }
+  
+  span {
+    font-size: 1rem;
+  }
+  
+  /* Layout spacing */
+  section {
+    margin-bottom: 40px;
+  }
+  

@@ -93,7 +93,7 @@ const renderDeals = deals => {
   sectionDeals.innerHTML = '<h2>Deals</h2>';
   sectionDeals.appendChild(fragment);
 
-  // Ajout des écouteurs pour les boutons "Save as favorite"
+
   const buttons = document.querySelectorAll('.save-favorite');
   buttons.forEach(button => {
     button.addEventListener('click', event => {
@@ -334,6 +334,18 @@ const renderVintedSales = (sales) => {
 
 
 //feature 12 : already implemented
+
+//feature 14 : 
+
+document.querySelector('#filter-favorite').addEventListener('click', () => {
+  const favorite = localStorage.getItem('favoriteDeal');
+  if (favorite) {
+    const parsedFavorite = JSON.parse(favorite);
+    renderDeals([parsedFavorite]);
+  } else {
+    alert('❌ No favorite saved yet!');
+  }
+});
 
 
 
