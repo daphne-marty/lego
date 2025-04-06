@@ -158,6 +158,18 @@ document.addEventListener('DOMContentLoaded', async () => {
   render(currentDeals, currentPagination);
 });
 
+// feature 2 : 
+
+document.querySelector('#filter-discount').addEventListener('click', () => {
+  const filteredDeals = currentDeals.filter(deal => {
+    const discount = ((deal.retail - deal.price) / deal.retail) * 100;
+    return discount >= 50;
+  });
+
+  renderDeals(filteredDeals);
+});
+
+
 //feature 1 :
 
 /**
@@ -172,3 +184,7 @@ selectPage.addEventListener('change', async (event) => {
   setCurrentDeals(deals);
   render(currentDeals, currentPagination);
 });
+
+
+
+
