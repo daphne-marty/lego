@@ -165,10 +165,23 @@ document.querySelector('#filter-discount').addEventListener('click', () => {
     const discount = ((deal.retail - deal.price) / deal.retail) * 100;
     return discount >= 50;
   });
-
+  
   renderDeals(filteredDeals);
 });
 
+//feature 3 : no comment field in "deals" couldn't sort them by comments counts
+
+document.querySelector('#filter-comments').addEventListener('click', () => {
+  const filteredDeals = currentDeals.filter(deal => {
+    return deal.commentCount >= 15;
+  });
+  console.table(currentDeals.map(deal => ({
+    title: deal.title,
+    commentCount: deal.commentCount
+  })));
+  
+  renderDeals(filteredDeals);
+});
 
 //feature 1 :
 
@@ -184,6 +197,10 @@ selectPage.addEventListener('change', async (event) => {
   setCurrentDeals(deals);
   render(currentDeals, currentPagination);
 });
+
+
+
+
 
 
 
