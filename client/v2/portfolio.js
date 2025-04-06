@@ -317,7 +317,7 @@ const renderVintedSales = (sales) => {
 };
 
 
-//
+//feature 12 : already implemented
 
 
 
