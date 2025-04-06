@@ -299,10 +299,25 @@ const renderVintedSales = (sales) => {
   document.querySelector('#p25').textContent = `${p25.toFixed(2)}€`;
   document.querySelector('#p50').textContent = `${p50.toFixed(2)}€`;
 
-
+  //feature 10 :
+  if (sales.length > 0) {
+    const timestamps = sales.map(sale => new Date(sale.published).getTime());
+  
+    const oldest = Math.min(...timestamps);
+    const newest = Math.max(...timestamps);
+  
+    const lifetimeInMs = newest - oldest;
+    const lifetimeInDays = Math.round(lifetimeInMs / (1000 * 60 * 60 * 24));
+  
+    document.querySelector('#lifetime').textContent = `${lifetimeInDays} days`;
+  } else {
+    document.querySelector('#lifetime').textContent = `0 days`;
+  }
 
 };
 
+
+//
 
 
 
