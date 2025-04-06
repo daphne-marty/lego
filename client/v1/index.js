@@ -2,7 +2,7 @@
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode#invoking_strict_mode
 'use strict';
 
-console.log('🚀 This is it.');
+console.log('🚀 hello');
 
 const MY_FAVORITE_DEALERS = [
   {
@@ -30,6 +30,10 @@ console.log(MY_FAVORITE_DEALERS[0]);
 // 1. Create a new variable and assign it the link of the lego set with the highest reduction I can find on these 2 websites
 // 2. Log the variable
 
+let HighestReduction = "https://www.lego.com/fr-fr/product/adventures-with-luigi-starter-course-71387";
+console.log("TODO 1 : \nVoilà le set lego que j'ai trouvé avec la plus grosse réduction (-70% sur DealLabs) : ", HighestReduction);
+
+
 /**
  * 🧱
  * Easy 😁?
@@ -42,6 +46,16 @@ console.log(MY_FAVORITE_DEALERS[0]);
 // 🎯 TODO 2: Number of deals
 // 1. Create a variable and assign it the number of deals
 // 2. Log the variable
+
+fetch('data.json')
+  .then(response => response.json()) // Convert response to JSON
+  .then(deals => {
+    console.log("Number of deals:", deals.length); // Print number of deals
+  })
+  .catch(error => console.error("Error loading deals:", error));
+
+const NumberOfDeals = deals.length;
+console.log(NumberOfDeals);
 
 // 🎯 TODO 3: Website name
 // 1. Create a variable and assign it the list of shopping community name only
@@ -401,7 +415,7 @@ const VINTED = [
 // 1. Delete the item with the uuid `f2c5377c-84f9-571d-8712-98902dcbb913`
 // 2. Log the new list of items
 
-// 🎯 TODO 5: Save a favorite item
+// 🎯 TODO 15: Save a favorite item
 // We declare and assign a variable called `sealedCamera`
 let sealedCamera = {
   link: "https://www.vinted.fr/items/5563396347-lego-43230-omaggio-a-walter-disney-misb",
